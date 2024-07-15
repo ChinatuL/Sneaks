@@ -241,3 +241,10 @@ export const products = [
         src: "https://res.cloudinary.com/chinatuluciake/image/upload/v1720980268/pegasus_u7gyho.png",
     },
 ];
+
+export const navbarLinks = [
+    { id: 1, name: "Home", path: "/" },
+    { id: 2, name: "About", path: "/about" },
+    { id: 3, name: "Products", path: "/products" },
+    { id: 2, name: "Contact Us", path: "/contact" },
+];

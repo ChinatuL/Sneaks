@@ -22,7 +22,11 @@ const Header = () => {
                 <div className='hidden lg:block'>
                     <img src={iconPerson} alt='' />
                 </div>
-                <Link to='/cart' className='relative z-20'>
+                <Link
+                    to='/cart'
+                    className='relative z-20'
+                    onClick={() => setIsOpen(false)}
+                >
                     <img src={iconCart} alt='cart' className='w-5 md:w-6' />
                 </Link>
 

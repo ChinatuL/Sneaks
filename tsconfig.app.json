@@ -26,7 +26,8 @@
         "@/*": ["./src/*"],
         "@components/*": ["./src/components/*"],
         "@lib/*": ["./src/lib/*"],
-        "@icons/*": ["./src/assets/icons/*"]
+        "@icons/*": ["./src/assets/icons/*"],
+        "@images/*": ["./src/assets/images/*"],
     }
   },
   "include": ["src"]

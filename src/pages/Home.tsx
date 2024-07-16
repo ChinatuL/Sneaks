@@ -14,7 +14,7 @@ const Home = () => {
                     great all day long.
                 </p>
                 <Link to='/products' className='md:w-max'>
-                    <div className='grid place-items-center h-16 px-8 text-2xl rounded-[10px] bg-darkYellow text-white uppercase md:w-max 2xl:h-[86px] 2xl:text-[32px] font-bold'>
+                    <div className='grid place-items-center h-16 px-8 text-2xl rounded-[10px] bg-darkYellow text-white uppercase transition-ease hover:opacity-80 md:w-max 2xl:h-[86px] 2xl:text-[32px] font-bold'>
                         shop now
                     </div>
                 </Link>

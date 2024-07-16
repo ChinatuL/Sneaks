@@ -248,3 +248,10 @@ export const navbarLinks = [
     { id: 3, name: "Products", path: "/products" },
     { id: 2, name: "Contact Us", path: "/contact" },
 ];
+
+export const footerLinks = [
+    { id: 1, name: "FAQs" },
+    { id: 2, name: "Blog" },
+    { id: 3, name: "Careers" },
+    { id: 4, name: "Terms of Service" },
+];

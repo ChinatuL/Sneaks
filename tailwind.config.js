@@ -8,6 +8,9 @@ export default {
                 darkYellow: "#FFAE5A",
                 lightGray: "#F6F0E2",
             },
+            borderRadius: {
+                radius: "10px",
+            },
         },
     },
     plugins: [],

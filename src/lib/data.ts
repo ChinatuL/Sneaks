@@ -246,7 +246,7 @@ export const navbarLinks = [
     { id: 1, name: "Home", path: "/" },
     { id: 2, name: "About", path: "/about" },
     { id: 3, name: "Products", path: "/products" },
-    { id: 2, name: "Contact Us", path: "/contact" },
+    { id: 4, name: "Contact Us", path: "/contact" },
 ];
 
 export const footerLinks = [

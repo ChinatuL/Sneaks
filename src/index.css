@@ -12,6 +12,13 @@
     body {
         @apply bg-lightYellow;
     }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s !important;
+    }
 }
 
 @layer utilities {
@@ -20,7 +27,7 @@
     }
 
     .font-merriweather {
-      font-family: "Merriweather Sans", sans-serif;
+        font-family: "Merriweather Sans", sans-serif;
     }
 
     .transition-ease {

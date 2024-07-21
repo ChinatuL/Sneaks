@@ -1,5 +1,6 @@
 import Logo from "./Logo";
 import FooterLinks from "./FooterLinks";
+import BtnYellow from "./BtnYellow";
 import { navbarLinks, footerLinks } from "@lib/data";
 import iconFacebook from "@icons/facebook.svg";
 import iconTwitter from "@icons/twitter.svg";
@@ -54,12 +55,13 @@ const Footer = () => {
                             placeholder='Your email'
                             className='py-2 px-6 w-full rounded-lg placeholder:text-black placeholder:text-sm'
                         />
-                        <button
+                        <BtnYellow
                             type='button'
-                            className='absolute top-[0.3rem] right-4 py-1 px-2 rounded bg-darkYellow text-white text-sm'
+                            small={true}
+                            style='absolute top-[0.3rem] right-4 py-1 px-2 text-sm'
                         >
                             Subscribe
-                        </button>
+                        </BtnYellow>
                     </div>
                 </div>
             </div>

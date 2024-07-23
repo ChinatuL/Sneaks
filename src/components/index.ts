@@ -5,4 +5,6 @@ export { default as Footer } from "./Footer";
 export { default as FormInput } from "./FormInput";
 export { default as FormError } from "./FormError";
 export { default as BtnYellow } from "./BtnYellow";
-export { default as ProductCard } from "./ProductCard";
+export { default as ProductsGrid } from "./ProductsGrid";
+export { default as Pagination } from "./Pagination";
+export { default as Loader } from "./Loader";

@@ -216,30 +216,6 @@ export const products = [
         price: 380,
         src: "https://res.cloudinary.com/chinatuluciake/image/upload/v1720980216/kyrie-7_aefkpr.png",
     },
-    {
-        id: 28,
-        name: "lebron 18",
-        description:
-            "Dominate the game with LeBron 18, combining power, speed, and comfort for the ultimate basketball experience.",
-        price: 250,
-        src: "https://res.cloudinary.com/chinatuluciake/image/upload/v1720980231/lebron-18_s0mumh.png",
-    },
-    {
-        id: 29,
-        name: "nike cortez",
-        description:
-            "A timeless classic, Nike Cortez offers a sleek design and comfort, perfect for both sport and casual wear.",
-        price: 350,
-        src: "https://res.cloudinary.com/chinatuluciake/image/upload/v1720980250/nike-cortez_tjbpgw.png",
-    },
-    {
-        id: 30,
-        name: "pegasus",
-        description:
-            "Experience unmatched comfort and performance with Pegasus, ideal for running and everyday wear.",
-        price: 420,
-        src: "https://res.cloudinary.com/chinatuluciake/image/upload/v1720980268/pegasus_u7gyho.png",
-    },
 ];
 
 export const navbarLinks = [

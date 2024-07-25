@@ -1,13 +1,15 @@
 import { createContext, useContext } from "react";
-import type { CartItem } from "@lib/definitions";
+import type { CartItem, Product } from "@lib/definitions";
 
 type ContextType = {
     cart: CartItem[];
     clearCart: () => void;
     checkout: () => void;
-    removeItemFromCart: (product: CartItem) => void;
-    updateQuantity: (product: CartItem, quantity: number) => void;
-    addItemToCart: (product: CartItem, quantity: number) => void;
+    removeItemFromCart: (productId: number) => void;
+    updateQuantity: (productId: number, quantity: number) => void;
+    addItemToCart: (product: Product, quantity: number) => void;
+    getItemQuantity: (productId: number) => number;
+    isItemInCart: (productId: number) => boolean;
 };
 
 type CartContextType = ContextType | null;
@@ -19,4 +21,5 @@ export const useCartContext = () => {
     if (!context) {
         throw new Error("useCartContext must be used within a CartProvider");
     }
+    return context;
 };

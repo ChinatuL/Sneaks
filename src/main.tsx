@@ -8,7 +8,12 @@ import { CartProvider } from "@context/cartProvider";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <Toaster position='top-right' expand={true} richColors />
+        <Toaster
+            position='top-right'
+            expand={false}
+            richColors
+            duration={2000}
+        />
         <CartProvider>
             <App />
         </CartProvider>

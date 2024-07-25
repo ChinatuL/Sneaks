@@ -1,21 +1,30 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCartContext } from "@context/cartContext";
 import type { Product } from "@lib/definitions";
 import { products } from "@lib/data";
-import iconMinus from "@icons/minus.svg";
-import iconPlus from "@icons/plus.svg";
+import { QuantitySelector } from "@components";
 
 const Product = () => {
     const { id } = useParams();
-
-    if (!id) {
-        return <div>Product not found</div>;
-    }
+    const { addItemToCart, getItemQuantity } = useCartContext();
 
     const product = products.find((product) => product.id.toString() === id);
+    const initialQuantity = product ? getItemQuantity(product.id) : 1;
+    const [quantity, setQuantity] = useState(initialQuantity);
+
     if (!product) {
         return <div>Product not found</div>;
     }
     const { name, description, price, src } = product;
+
+    const handleIncrease = () => {
+        setQuantity(quantity + 1);
+    };
+
+    const handleDecrease = () => {
+        setQuantity(quantity - 1);
+    };
 
     return (
         <div className='flex flex-col gap-6 md:gap-0 md:flex-row'>
@@ -28,16 +37,15 @@ const Product = () => {
                 </h2>
                 <p className='py-2 leading-normal'>{description}</p>
                 <p className='py-4 text-lg font-medium md:text-xl'>${price}</p>
-                <div className='flex items-center gap-2 pb-4'>
-                    <button>
-                        <img src={iconMinus} alt='reduce quantity' />
-                    </button>
-                    <span>1</span>
-                    <button>
-                        <img src={iconPlus} alt='increase quantity' />
-                    </button>
-                </div>
-                <button className='border border-darkYellow text-darkYellow font-semibold text-sm uppercase py-2 px-4 rounded-md transition-ease hover:bg-darkYellow hover:text-white'>
+                <QuantitySelector
+                    quantity={quantity}
+                    handleIncrease={handleIncrease}
+                    handleDecrease={handleDecrease}
+                />
+                <button
+                    onClick={() => addItemToCart(product, quantity)}
+                    className='border border-darkYellow text-darkYellow font-semibold text-sm uppercase py-2 px-4 rounded-md transition-ease hover:bg-darkYellow hover:text-white'
+                >
                     add to cart
                 </button>
             </div>

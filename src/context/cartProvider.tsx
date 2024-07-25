@@ -1,7 +1,7 @@
 import { useReducer, useEffect } from "react";
 import { CartContext } from "./cartContext";
 import { cartReducer } from "./cartReducer";
-import type { CartItem } from "@lib/definitions";
+import type { CartItem, Product } from "@lib/definitions";
 import { toast } from "sonner";
 import {
     ADD_TO_CART,
@@ -29,8 +29,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         toast.success("Cart cleared");
     };
 
-    const removeItemFromCart = (product: CartItem) => {
-        dispatch({ type: REMOVE_FROM_CART, payload: { id: product.id } });
+    const removeItemFromCart = (productId: number) => {
+        dispatch({ type: REMOVE_FROM_CART, payload: { id: productId } });
         toast.success("Item removed from cart");
     };
 
@@ -39,26 +39,36 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         toast.success("Checkout successful");
     };
 
-    const getItemInCart = (product: CartItem) => {
-        return state.cart.find((item) => item.id === product.id);
+    const getItemInCart = (productId: number) => {
+        return state.cart.find((item) => item.id === productId);
     };
 
-    const updateQuantity = (product: CartItem, quantity: number) => {
+    const getItemQuantity = (productId: number) => {
+        const itemInCart = getItemInCart(productId);
+        return itemInCart ? itemInCart.quantity : 1;
+    };
+
+    const updateQuantity = (productId: number, quantity: number) => {
         dispatch({
             type: UPDATE_QUANTITY,
-            payload: { id: product.id, quantity },
+            payload: { id: productId, quantity },
         });
         toast.success("Item quantity updated");
     };
 
-    const addItemToCart = (product: CartItem, quantity: number) => {
-        const itemInCart = getItemInCart(product);
+    const addItemToCart = (product: Product, quantity: number) => {
+        const itemInCart = getItemInCart(product.id);
         if (itemInCart) {
-            updateQuantity(product, quantity);
-            toast.success("Item quantity updated");
+            updateQuantity(product.id, quantity);
+        } else {
+            const cartItem: CartItem = { ...product, quantity };
+            dispatch({ type: ADD_TO_CART, payload: cartItem });
+            toast.success("Item added to cart");
         }
-        dispatch({ type: ADD_TO_CART, payload: { ...product, quantity } });
-        toast.success("Item added to cart");
+    };
+
+    const isItemInCart = (productId: number) => {
+        return !!getItemInCart(productId);
     };
 
     useEffect(() => {
@@ -74,6 +84,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 removeItemFromCart,
                 updateQuantity,
                 addItemToCart,
+                getItemQuantity,
+                isItemInCart,
             }}
         >
             {children}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCartContext } from "@context/cartContext";
-import type { Product } from "@lib/definitions";
 import { products } from "@lib/data";
 import { QuantitySelector } from "@components";
 

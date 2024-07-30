@@ -27,8 +27,8 @@ const Product = () => {
     };
 
     return (
-        <div className='flex flex-col gap-6 md:gap-0 md:flex-row'>
-            <div className='grid place-items-center w-full bg-lightGray rounded-radius md:w-6/12 lg:w-7/12 h-64 md:h-96'>
+        <div className='flex flex-col gap-6 md:flex-row md:gap-0'>
+            <div className='grid place-items-center w-full h-64 bg-lightGray rounded-radius md:w-6/12 md:h-96 lg:w-7/12'>
                 <img src={src} alt={name} className='w-[70%]' />
             </div>
             <div className='w-full md:w-6/12 md:pl-10 lg:w-5/12 lg:pl-14 xl:pl-28'>
@@ -44,7 +44,7 @@ const Product = () => {
                 />
                 <button
                     onClick={() => addItemToCart(product, quantity)}
-                    className='border border-darkYellow text-darkYellow font-semibold text-sm uppercase py-2 px-4 rounded-md transition-ease hover:bg-darkYellow hover:text-white'
+                    className='border border-darkYellow text-darkYellow font-semibold text-sm uppercase py-2 px-4 mt-4 rounded-md transition-ease hover:bg-darkYellow hover:text-white'
                 >
                     add to cart
                 </button>

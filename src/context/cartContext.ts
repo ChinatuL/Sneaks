@@ -10,6 +10,9 @@ type ContextType = {
     addItemToCart: (product: Product, quantity: number) => void;
     getItemQuantity: (productId: number) => number;
     isItemInCart: (productId: number) => boolean;
+    cartSubtotal: number;
+    shippingTotal: number;
+    cartTotal: number;
 };
 
 type CartContextType = ContextType | null;

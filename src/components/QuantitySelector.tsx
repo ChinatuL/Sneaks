@@ -13,7 +13,7 @@ const QuantitySelector = ({
     handleDecrease,
 }: QuantitySelectorProps) => {
     return (
-        <div className='flex items-center gap-2 pb-4'>
+        <div className='flex items-center gap-2'>
             <button onClick={handleDecrease}>
                 <img src={iconMinus} alt='reduce quantity' />
             </button>

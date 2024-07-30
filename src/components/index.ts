@@ -9,3 +9,5 @@ export { default as ProductsGrid } from "./ProductsGrid";
 export { default as Pagination } from "./Pagination";
 export { default as Loader } from "./Loader";
 export { default as QuantitySelector } from "./QuantitySelector";
+export { default as CartItemsList } from "./CartItemsList";
+export { default as CartTotals } from "./CartTotals";

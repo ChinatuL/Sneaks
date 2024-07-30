@@ -71,6 +71,14 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         return !!getItemInCart(productId);
     };
 
+    const cartSubtotal = state.cart.reduce((total, item) => {
+        return total + item.price * item.quantity;
+    }, 0);
+
+    const shippingTotal = state.cart.length * 4;
+
+    const cartTotal = cartSubtotal + shippingTotal;
+
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(state.cart));
     }, [state.cart]);
@@ -86,6 +94,9 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 addItemToCart,
                 getItemQuantity,
                 isItemInCart,
+                cartSubtotal,
+                shippingTotal,
+                cartTotal,
             }}
         >
             {children}

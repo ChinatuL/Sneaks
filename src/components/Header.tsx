@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Squash as Hamburger } from "hamburger-react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import iconSearch from "@icons/search.svg";
 import iconPerson from "@icons/user.svg";
 import iconCart from "@icons/cart.svg";
+import iconCartYellow from "@icons/cart-yellow.svg";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
+    const { pathname } = useLocation();
 
     return (
         <header className='flex justify-between items-center w-full py-4 md:py-8 2xl:py-16'>
@@ -27,7 +29,11 @@ const Header = () => {
                     className='relative z-20'
                     onClick={() => setIsOpen(false)}
                 >
-                    <img src={iconCart} alt='cart' className='w-5 md:w-6' />
+                    <img
+                        src={pathname === "/cart" ? iconCartYellow : iconCart}
+                        alt='cart'
+                        className='w-5 md:w-6'
+                    />
                 </Link>
 
                 <div className='relative z-20 lg:hidden'>

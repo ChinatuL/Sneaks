@@ -6,7 +6,8 @@ import { QuantitySelector } from "@components";
 
 const Product = () => {
     const { id } = useParams();
-    const { addItemToCart, getItemQuantity } = useCartContext();
+    const { addItemToCart, getItemQuantity, isItemInCart, removeItemFromCart } =
+        useCartContext();
 
     const product = products.find((product) => product.id.toString() === id);
     const initialQuantity = product ? getItemQuantity(product.id) : 1;
@@ -41,12 +42,22 @@ const Product = () => {
                     handleIncrease={handleIncrease}
                     handleDecrease={handleDecrease}
                 />
-                <button
-                    onClick={() => addItemToCart(product, quantity)}
-                    className='border border-darkYellow text-darkYellow font-semibold text-sm uppercase py-2 px-4 mt-4 rounded-md transition-ease hover:bg-darkYellow hover:text-white'
-                >
-                    add to cart
-                </button>
+                <div className='flex gap-6 items-center mt-4'>
+                    <button
+                        onClick={() => addItemToCart(product, quantity)}
+                        className='border border-darkYellow text-darkYellow font-semibold text-sm uppercase py-2 px-4 rounded-md transition-ease hover:bg-darkYellow hover:text-white'
+                    >
+                        add to cart
+                    </button>
+                    {isItemInCart(product.id) && (
+                        <button
+                            onClick={() => removeItemFromCart(product.id)}
+                            className='border border-red-700 text-red-700 py-2 px-4 rounded-md transition-ease hover:bg-red-700 hover:text-white text-sm font-semibold uppercase'
+                        >
+                            Delete from cart
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

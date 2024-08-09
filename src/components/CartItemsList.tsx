@@ -30,7 +30,7 @@ const CartItemsList = ({ cart }: CartItemsListProps) => {
             <div className='w-full h-[2px] bg-lightGray'></div>
             <button
                 onClick={openModal}
-                className='border border-black rounded py-2 px-4 text-sm font-medium transition-ease hover:bg-black hover:text-white lg:justify-self-end lg:w-max'
+                className='border border-black rounded py-2 px-4 text-sm font-medium transition-ease hover:bg-black hover:text-white lg:justify-self-end lg:w-max lg:h-max'
             >
                 Clear Cart
             </button>

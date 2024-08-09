@@ -79,6 +79,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
     const cartTotal = cartSubtotal + shippingTotal;
 
+    const totalItemsInCart = state.cart.reduce((total, item) => {
+        return total + item.quantity;
+    }, 0);
+
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(state.cart));
     }, [state.cart]);
@@ -97,6 +101,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
                 cartSubtotal,
                 shippingTotal,
                 cartTotal,
+                totalItemsInCart,
             }}
         >
             {children}

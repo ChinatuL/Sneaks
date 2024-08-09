@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCartContext } from "@context/cartContext";
 import { Link, useLocation } from "react-router-dom";
 import { Squash as Hamburger } from "hamburger-react";
 import Logo from "./Logo";
@@ -12,6 +13,7 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
     const { pathname } = useLocation();
+    const { totalItemsInCart } = useCartContext();
 
     return (
         <header className='flex justify-between items-center w-full py-4 md:py-8 2xl:py-16'>
@@ -34,6 +36,9 @@ const Header = () => {
                         alt='cart'
                         className='w-5 md:w-6'
                     />
+                    <div className='absolute z-20 -top-6 left-2 bg-darkYellow text-white px-2 rounded-full'>
+                        {totalItemsInCart}
+                    </div>
                 </Link>
 
                 <div className='relative z-20 lg:hidden'>

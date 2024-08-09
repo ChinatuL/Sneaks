@@ -13,6 +13,7 @@ type ContextType = {
     cartSubtotal: number;
     shippingTotal: number;
     cartTotal: number;
+    totalItemsInCart: number;
 };
 
 type CartContextType = ContextType | null;

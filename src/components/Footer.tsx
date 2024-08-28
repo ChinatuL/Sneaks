@@ -19,10 +19,9 @@ const Footer = () => {
                             Social Media
                         </h2>
                         <p className='max-w-[285px] pb-4 font-medium text-sm lg:text-base 2xl:pb-6'>
-                            Follow us on social media to find out the latest
-                            updates on our progress.
+                            Follow us on social media to find more.
                         </p>
-                        <div className='flex items-center justify-center gap-2 md:justify-start md:gap-4 2xl:gap-6'>
+                        <div className='flex items-center gap-2 md:justify-start md:gap-4 2xl:gap-6'>
                             <img
                                 src={iconFacebook}
                                 alt=''

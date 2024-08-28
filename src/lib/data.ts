@@ -229,5 +229,5 @@ export const footerLinks = [
     { id: 1, name: "FAQs" },
     { id: 2, name: "Blog" },
     { id: 3, name: "Careers" },
-    { id: 4, name: "Terms of Service" },
+    { id: 4, name: "Terms" },
 ];
